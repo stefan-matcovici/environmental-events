@@ -1,3 +1,20 @@
-<p>
-  events works!
-</p>
+<h2>My Events</h2>
+<div>
+  <label>Event name:</label> <input #eventName />
+  <button (click)="add(eventName.value); eventName.value=''">
+    Add
+  </button>
+</div>
+<ul class="events">
+  <li *ngFor="let event of events" (click)="onSelect(event)" [class.selected]="event === selectedevent">
+    <span class="badge">{{event.id}}</span>
+    <span>{{event.name}}</span>
+    <button class="delete" (click)="delete(event); $event.stopPropagation()">x</button>
+  </li>
+</ul>
+<div *ngIf="selectedevent">
+  <h2>
+    {{selectedevent.name | uppercase}} is my event
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

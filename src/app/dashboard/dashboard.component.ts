@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Event }        from '../models/event';
+import { EventService } from '../services/event.service';
+
 @Component({
-  selector: 'app-dashboard',
+  selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
+  events: Event[] = [];
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.eventService.getEvents()
+      .then(events => this.events = events.slice(0, 5));
   }
-
 }

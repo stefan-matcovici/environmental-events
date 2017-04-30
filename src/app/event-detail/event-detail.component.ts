@@ -1,15 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+import { Component, OnInit }      from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location }               from '@angular/common';
+
+import { Event }        from '../models/event';
+import { EventService } from '../services/event.service';
+import {MapComponent} from '../map/map.component';
 
 @Component({
-  selector: 'app-event-detail',
+  selector: 'event-detail',
   templateUrl: './event-detail.component.html',
-  styleUrls: ['./event-detail.component.css']
+  styleUrls: [ './event-detail.component.css' ]
 })
 export class EventDetailComponent implements OnInit {
+  event: Event;
 
-  constructor() { }
+  constructor(
+    private eventService: EventService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.route.params
+      .switchMap((params: Params) => this.eventService.getEvent(+params['id']))
+      .subscribe(event => this.event = event);
   }
 
+  save(): void {
+    this.eventService.update(this.event)
+      .then(() => this.goBack());
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

@@ -1,3 +1,14 @@
-<p>
-  event-detail works!
-</p>
+<div *ngIf="event">
+  <h2>{{event.name}} details!</h2>
+  <div>
+    <label>id: </label>{{event.id}}
+    <label>date: </label>{{event.startingTime}}
+  </div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="event.name" placeholder="name" />
+   </div>
+   <app-map [event]="event"></app-map>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
