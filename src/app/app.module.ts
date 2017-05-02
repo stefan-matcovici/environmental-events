@@ -26,7 +26,7 @@ import { NguiMapModule} from '@ngui/map';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'}),
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
