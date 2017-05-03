@@ -1,20 +1,26 @@
-<h2>My Events</h2>
-<div>
-  <label>Event name:</label> <input #eventName />
-  <button (click)="add(eventName.value); eventName.value=''">
+<br>
+<br>
+<div style="padding-left: 3%">
+ <div class="form-group">
+    <label><h5>Event name:</h5></label>
+    <input #eventName class="form-control" placeholder="Ex: Tsunami" style="width:25%;display:inline-block">
+    <button (click)="add(eventName.value); eventName.value=''">
     Add
   </button>
-</div>
+  </div>
+
+
 <ul class="events">
-  <li *ngFor="let event of events" (click)="onSelect(event)" [class.selected]="event === selectedevent">
+  <li *ngFor="let event of events" (click)="onSelect(event)" [class.selected]="event === selectedevent" style="width:130%;height:10%">
     <span class="badge">{{event.id}}</span>
     <span>{{event.name}}</span>
     <button class="delete" (click)="delete(event); $event.stopPropagation()">x</button>
-  </li>
+</li>
 </ul>
 <div *ngIf="selectedevent">
   <h2>
-    {{selectedevent.name | uppercase}} is my event
+    {{selectedevent.name | uppercase}}
   </h2>
   <button (click)="gotoDetail()">View Details</button>
+</div>
 </div>

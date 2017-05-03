@@ -1,14 +1,16 @@
-<div *ngIf="event">
-  <h2>{{event.name}} details!</h2>
-  <div>
-    <label>id: </label>{{event.id}}
-    <label>date: </label>{{event.startingTime}}
-  </div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="event.name" placeholder="name" />
-   </div>
-   <app-map [event]="event"></app-map>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
+<br>
+
+<div class="card offset-md-3" *ngIf="event" style="width: 40rem;">
+    <ul class="list-group list-group-flush" style="background-color: 	  #e6ffff">
+    <li class="list-group-item mx-auto" style="background-color:  #e6ffff"><h2>{{event.name}} details!</h2></li>
+    <li class="list-group-item" style="background-color: #e6ffff"><label>Id: </label>{{event.id}}</li>
+    <li class="list-group-item" style="background-color: #e6ffff"><label>Date: </label>{{event.startingTime}}</li>
+    <li class="list-group-item" style="background-color: #e6ffff"><label>Name: </label>
+    <input [(ngModel)]="event.name" class="form-control" placeholder="name" style="margin:1%;width:25%;display:inline-block" ></li>
+  </ul>
+
+   <app-map [event]="event" style="background-color: #e6ffff"></app-map>
+   
+  <a (click)="goBack()" class="btn btn-outline-info btn-primary btn-lg btn-block " style="width:100%;height:10%;">Back</a>
+  <a (click)="save()" class="btn btn-outline-success btn-primary btn-lg btn-block " style="width:100%;height:10%;">Save</a>
 </div>
