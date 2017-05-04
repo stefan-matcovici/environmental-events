@@ -18,4 +18,9 @@ describe('EventService', () => {
   it('Deleting a non-existing record should throw an error', inject([EventService], (service: EventService) => {
       expect(service.delete(-1)).toThrowError;
     }));
+
+    
+
+
+
 });
