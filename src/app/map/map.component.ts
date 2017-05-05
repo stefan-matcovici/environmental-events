@@ -15,10 +15,5 @@ export class MapComponent implements OnInit {
   }
 
   @Input() event: Event;
-
-  position:[1,2];
-  radius:2000;
-
   
-
 }
