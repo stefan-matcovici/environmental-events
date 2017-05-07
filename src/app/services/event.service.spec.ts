@@ -8,8 +8,8 @@ import { Event } from '../models/Event';
 
 import { EventService } from './event.service';
 
-const HERO_ONE = 'HeroNrOne';
-const HERO_TWO = 'WillBeAlwaysTheSecond';
+const EVENT_ONE = 'EventNrOne';
+const EVENT_TWO = 'WillBeAlwaysTheSecond';
 
 describe('EventService', () => {
   beforeEach(() => {
@@ -42,11 +42,12 @@ describe('EventService', () => {
        let result: String[];
        this.eventService.getEvents().then((events: String[]) => result = events);
        this.lastConnection.mockRespond(new Response(new ResponseOptions({
-         body: JSON.stringify({data: [HERO_ONE, HERO_TWO]}),
+         body: JSON.stringify({data: [EVENT_ONE, EVENT_TWO]}),
        })));
+       
        tick();
        expect(result.length).toEqual(2, 'should contain given amount of events');
-       expect(result[0]).toEqual(HERO_ONE, ' HERO_ONE should be the first hero');
-       expect(result[1]).toEqual(HERO_TWO, ' HERO_TWO should be the second hero');
+       expect(result[0]).toEqual(EVENT_ONE, ' EVENT_ONE should be the first hero');
+       expect(result[1]).toEqual(EVENT_TWO, ' EVENT_TWO should be the second hero');
      }));
 });
