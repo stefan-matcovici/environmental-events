@@ -80,6 +80,26 @@ describe('EventService', () => {
     }))
   );
 
+  it('error when retrieves event using ID',
+    inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
+    ) => {
+      var res;
+      //var spy = spyOn(console, 'error');
+      console.error = function(message) {
+      expect(message).toEqual('An error ocurred')    };
+      mockBackend.connections.subscribe(c => {
+        expect(c.request.url).toBe('api/events/undefined');
+        let response = new ResponseOptions({ body: JSON.stringify({data:{}}), status: 404});
+        c.mockRespond(new Response(response));
+      });
+      res = eventService.getEvent();
+      tick();
+      console.log(res);
+      //expect(spy).toHaveBeenCalledWith('An error occured');
+      //expect(res[0].id).toEqual(1);
+    }))
+  );
+
   it('deletes event using ID',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
@@ -88,6 +108,20 @@ describe('EventService', () => {
         //let response = new ResponseOptions({body: JSON.stringify({})})
       });
         eventService.delete(3);
+        tick();
+      })
+    ));
+
+  it('error when deletes event using ID',
+    inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
+    ) => {
+      console.error = function(message) {
+      expect(message).toEqual('An error ocurred')    };
+      mockBackend.connections.subscribe(c => {
+        expect(c.request.url).toBe('api/events/undefined');
+        //let response = new ResponseOptions({body: JSON.stringify({})})
+      });
+        eventService.delete();
         tick();
       })
     ));
@@ -108,6 +142,24 @@ describe('EventService', () => {
       expect(res.id).toEqual(1);
     })));
 
+  it('error when creates event using name',
+    inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
+    ) => {
+      var res;
+      console.error = function(message) {
+      expect(message).toEqual('An error ocurred')    };
+      mockBackend.connections.subscribe(c => {
+        expect(c.request.url).toBe('api/events');
+        let response = new ResponseOptions({body: JSON.stringify({data: {}}), status:404}); // when testing for errors - status: 404
+        c.mockRespond(new Response(response));
+      });
+      eventService.create().then((event : Event) => {
+        res = event;
+      });
+      tick();
+      expect(res.id).toEqual(undefined);
+    })));
+
 
 
     it('updates event using id',
@@ -124,6 +176,23 @@ describe('EventService', () => {
         expect(res.id).toEqual(1);
       })
     })));
+
+    it('error when updates event using id',
+      inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
+      ) => {
+      var res;
+      console.error = function(message) {
+      expect(message).toEqual('An error ocurred')    };
+      mockBackend.connections.subscribe(c => {
+        expect(c.request.url).toBe('api/events');
+        let response = new ResponseOptions({body: JSON.stringify({data: {}}), status:404});
+        c.mockRespond.update().then((event : Event) => {
+          res = event;
+        });
+        tick();
+        expect(res.id).toEqual(undefined);
+      })
+    })));
     
 
 
@@ -131,17 +200,3 @@ describe('EventService', () => {
   
 
 });
-
-/*describe('getEvent', () => {
-  
-});*/
-
-
-
-  //it('should ...', inject([EventService], (service: EventService) => {
-  //  expect(service).toBeTruthy();
-  //}));
-
-  //it('Deleting a non-existing record should throw an error', inject([EventService], (service: EventService) => {
-  //  expect(service.delete(-1)).toThrowError;
-  //}));
