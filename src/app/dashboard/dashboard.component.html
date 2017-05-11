@@ -1,8 +1,8 @@
 
+<h2>Newest Events</h2>
 <br>
-<h3>Newest Events</h3>
   <ul>
-    <li *ngFor="let event of events"  [routerLink]="['/detail', event.id]"  class="btn btn-outline-info btn-primary btn-lg btn-block " style="width:28%;height:10%;margin:2%;display:inline-block;">
-    <h3 style="line-height: 0.8em">{{event.name}}</h3> </li>
+    <li *ngFor="let event of events"  [routerLink]="['/detail', event.id]"  class="btn btn-outline-info btn-lg btn-block">
+    <h3 style="padding-bottom: 5%">{{event.name}}</h3> </li>
     </ul>
 

@@ -1,9 +1,24 @@
-<nav class="navbar navbar-default ">
+<!DOCTYPE HTML>
+<html>
+  <head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" routerLink="/dashboard" routerLinkActive="active"class="btn btn-outline-primary">Dashboard</button>
-      <button type="button" routerLink="/events" routerLinkActive="active" class="btn btn-outline-primary">Events</button>
+      <a class="navbar-brand" href="#">{{title}}</a>
     </div>
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+      <li><a routerLink="/events" routerLinkActive="active">Events</a></li>
+    </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>
+  </body>
+  </html>
