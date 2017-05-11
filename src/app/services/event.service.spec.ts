@@ -29,7 +29,7 @@ describe('EventService', () => {
       var res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('api/events');
-        let response = new ResponseOptions({ body: JSON.stringify({data: [{id:1}, {id:2}]}) });
+        let response = new ResponseOptions({ body: JSON.stringify({data: [{id:1}, {id:2}]})});
         c.mockRespond(new Response(response));
       });
       eventService.getEvents().then((events : Event[]) => {
@@ -41,6 +41,28 @@ describe('EventService', () => {
     }))
   );
 
+  it('error when retrieves events using IDs',
+    inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
+    ) => {
+      var res;
+      //var spy = spyOn(console, 'error');
+      console.error = function(message) {
+      expect(message).toEqual('An error ocurred')    };
+      mockBackend.connections.subscribe(c => {
+        expect(c.request.url).toBe('api/events');
+        let response = new ResponseOptions({ body: JSON.stringify({data:{}}), status: 404});
+        c.mockRespond(new Response(response));
+      });
+      res = eventService.getEvents();
+      tick();
+      console.log(res);
+      //expect(spy).toHaveBeenCalledWith('An error occured');
+      //expect(res[0].id).toEqual(1);
+    }))
+  );
+
+
+  
   it('retrieves event using ID',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
@@ -86,7 +108,9 @@ describe('EventService', () => {
       expect(res.id).toEqual(1);
     })));
 
-    it('update event using id',
+
+
+    it('updates event using id',
       inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
       ) => {
       var res;
@@ -101,7 +125,7 @@ describe('EventService', () => {
       })
     })));
     
-    
+
 
   
   
