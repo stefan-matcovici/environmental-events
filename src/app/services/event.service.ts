@@ -45,12 +45,12 @@ export class EventService {
       .catch(this.handleError);
   }
 
-  update(hero: Event): Promise<Event> {
-    const url = `${this.eventsUrl}/${hero.id}`;
+  update(event: Event): Promise<Event> {
+    const url = `${this.eventsUrl}/${event.id}`;
     return this.http
-      .put(url, JSON.stringify(hero), {headers: this.headers})
+      .put(url, JSON.stringify(event), {headers: this.headers})
       .toPromise()
-      .then(() => hero)
+      .then(() => event)
       .catch(this.handleError);
   }
 
