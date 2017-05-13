@@ -1,18 +1,10 @@
-
-<h2>Newest Events</h2>
+<h2>
+  Newest Events</h2>
 <br>
-  
-    <div class="col-lg-6 offset-lg-3 mb-3" *ngFor="let event of events" (click)="onSelect(event)" [class.selected]="event === selectedevent">
-    <div class="card card-default ">
-            <div class="col-12">
-                <div class="card-block">
-                    <h4 class="card-title">{{event.name}}</h4>
-                    <p class="card-text">{{event.startingTime}}</p>
-                    <a href="#" class="btn btn-primary">Details</a>
-                </div>
-            </div>
-    </div>
+<div class="container">
+  <div class="notice" [ngClass]="{'notice-danger' : event.severity==='RED','notice-warning' : event.severity==='YELLOW','notice-success' : event.severity==='GREEN','notice-info' : event.severity==='ORANGE'}" *ngFor="let event of sortedEvents()">
+      <h4 class="card-title">{{event.name}}</h4>
+      <p class="card-text" ng-class="'RED'">{{event.startingTime | date:'medium'}}</p>
+      <a [routerLink]="['/detail', event.id]" class="btn btn-primary">Details</a>
+  </div>
 </div>
-
-    
-

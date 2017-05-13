@@ -1,7 +1,7 @@
 <br>
 <br>
 <div style="padding-left: 3%">
- <div class="form-group">
+  <div class="form-group">
     <label><h5>Event name:</h5></label>
     <input #eventName class="form-control" placeholder="Ex: Tsunami" style="width:25%;display:inline-block">
     <button (click)="add(eventName.value); eventName.value=''">
@@ -9,20 +9,17 @@
   </button>
   </div>
 
-
-<div class="col-lg-6 offset-lg-3 mb-3" *ngFor="let event of events" (click)="onSelect(event)" >
+  <div class="col-lg-6 offset-lg-3 mb-3" *ngFor="let event of events" (click)="onSelect(event)">
     <div class="card card-default">
-            <div class="col-12">
-                <div class="card-block">
-                    <h4 class="card-title">{{event.name}}</h4>
-                    <p class="card-text">{{event.hints}}</p>
-                    <p class="card-text">{{event.description}}</p>
-                    <a class="btn btn-danger pull-right" (click)="delete(event); $event.stopPropagation()">Delete</a>
-                </div>
-            </div>
+      <div class="col-12">
+        <div class="card-block">
+          <h4 class="card-title">{{event.name}}</h4>
+          <p class="card-text">{{event.hints}}</p>
+          <p class="card-text">{{event.description}}</p>
+          <a class="btn btn-danger pull-right" (click)="delete(event); $event.stopPropagation()">Delete</a>
+        </div>
+      </div>
     </div>
-</div>
-
-
+  </div>
 
 </div>

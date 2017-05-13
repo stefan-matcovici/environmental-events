@@ -23,7 +23,7 @@ describe('EventService', () => {
     })
   });
 
-  it('retrieves events using IDs',
+  it('retrieves all events',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
       var res;
@@ -41,11 +41,10 @@ describe('EventService', () => {
     }))
   );
 
-  it('error when retrieves events using IDs',
+  it('error when retrieving events',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
       var res;
-      //var spy = spyOn(console, 'error');
       console.error = function(message) {
       expect(message).toEqual('An error ocurred')    };
       mockBackend.connections.subscribe(c => {
@@ -55,15 +54,10 @@ describe('EventService', () => {
       });
       res = eventService.getEvents();
       tick();
-      console.log(res);
-      //expect(spy).toHaveBeenCalledWith('An error occured');
-      //expect(res[0].id).toEqual(1);
     }))
   );
 
-
-  
-  it('retrieves event using ID',
+  it('retrieve event using ID',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
       var res;
@@ -80,11 +74,10 @@ describe('EventService', () => {
     }))
   );
 
-  it('error when retrieves event using ID',
+  it('error when retrieving event using ID',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
       var res;
-      //var spy = spyOn(console, 'error');
       console.error = function(message) {
       expect(message).toEqual('An error ocurred')    };
       mockBackend.connections.subscribe(c => {
@@ -94,45 +87,40 @@ describe('EventService', () => {
       });
       res = eventService.getEvent();
       tick();
-      console.log(res);
-      //expect(spy).toHaveBeenCalledWith('An error occured');
-      //expect(res[0].id).toEqual(1);
     }))
   );
 
-  it('deletes event using ID',
+  it('delete event using ID',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('api/events/3');
-        //let response = new ResponseOptions({body: JSON.stringify({})})
       });
         eventService.delete(3);
         tick();
       })
     ));
 
-  it('error when deletes event using ID',
+  it('error when deleting event using ID',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
       console.error = function(message) {
       expect(message).toEqual('An error ocurred')    };
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('api/events/undefined');
-        //let response = new ResponseOptions({body: JSON.stringify({})})
       });
         eventService.delete();
         tick();
       })
     ));
 
-  it('creates event using name',
+  it('create event using name',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
       var res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('api/events');
-        let response = new ResponseOptions({body: JSON.stringify({data: {id:1}})}); // when testing for errors - status: 404
+        let response = new ResponseOptions({body: JSON.stringify({data: {id:1}})});
         c.mockRespond(new Response(response));
       });
       eventService.create('Fire').then((event : Event) => {
@@ -142,7 +130,7 @@ describe('EventService', () => {
       expect(res.id).toEqual(1);
     })));
 
-  it('error when creates event using name',
+  it('error when creating event using name',
     inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
     ) => {
       var res;
@@ -150,19 +138,14 @@ describe('EventService', () => {
       expect(message).toEqual('An error ocurred')    };
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('api/events');
-        let response = new ResponseOptions({body: JSON.stringify({data: {}}), status:404}); // when testing for errors - status: 404
+        let response = new ResponseOptions({body: JSON.stringify({data: {}}), status:404});
         c.mockRespond(new Response(response));
       });
-      eventService.create().then((event : Event) => {
-        res = event;
-      });
+      eventService.create('Fire');
       tick();
-      expect(res.id).toEqual(undefined);
     })));
 
-
-
-    it('updates event using id',
+    it('update event using id',
       inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
       ) => {
       var res;
@@ -177,7 +160,7 @@ describe('EventService', () => {
       })
     })));
 
-    it('error when updates event using id',
+    it('error when updating event using id',
       inject([EventService, MockBackend], fakeAsync((eventService, mockBackend
       ) => {
       var res;
@@ -193,10 +176,4 @@ describe('EventService', () => {
         expect(res.id).toEqual(undefined);
       })
     })));
-    
-
-
-  
-  
-
 });

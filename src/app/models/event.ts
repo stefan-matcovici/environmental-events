@@ -5,4 +5,5 @@ export class Event {
   location: {latitude:number,longitude:number};
   hints: string;
   description: string;
+  severity: string;
 }

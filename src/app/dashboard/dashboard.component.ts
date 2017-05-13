@@ -20,20 +20,11 @@ export class DashboardComponent implements OnInit {
     this.eventService.getEvents()
       .then(events => this.events = events.slice(0, 5));
   }
-formatDate(date) {
-  var monthNames = [
-    "January", "February", "March",
-    "April", "May", "June", "July",
-    "August", "September", "October",
-    "November", "December"
-  ];
 
-  var day = date.getDate();
-  var monthIndex = date.getMonth();
-  var year = date.getFullYear();
-
-  return day + ' ' + monthNames[monthIndex] + ' ' + year;
-}
+  sortedEvents(): Event[] 
+  {
+    return this.events.sort((a: Event, b: Event) => {if (a.startingTime>b.startingTime) return -1; else if (a.startingTime<b.startingTime) return 1; else return 0;});
+  }
 
 
 }

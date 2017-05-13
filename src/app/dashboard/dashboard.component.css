@@ -65,3 +65,45 @@ h4 {
   left:32%
   }
 
+  .notice {
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 15px solid #7f7f84;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+            box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+}
+.notice-sm {
+    padding: 10px;
+    font-size: 80%;
+}
+.notice-lg {
+    padding: 35px;
+    font-size: large;
+}
+.notice-success {
+    border-color: #5fc536
+}
+.notice-success>strong {
+    color: #5fc536
+}
+.notice-info {
+    border-color: #e6eb10
+}
+.notice-info>strong {
+    color: #e6eb10
+}
+.notice-warning {
+    border-color: #ff8a00
+}
+.notice-warning>strong {
+    color: #ff8a00
+}
+.notice-danger {
+    border-color: #d73814;
+}
+.notice-danger>strong {
+    color: #d73814;
+}
+
