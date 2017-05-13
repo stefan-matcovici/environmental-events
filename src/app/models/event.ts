@@ -1,7 +1,7 @@
 export class Event {
   id: number;
   name: string;
-  startingDate: Date;
+  startingTime: Date;
   location: {latitude:number,longitude:number};
   hints: string;
   description: string;

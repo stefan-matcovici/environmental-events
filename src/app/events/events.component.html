@@ -10,17 +10,19 @@
   </div>
 
 
-<ul class="events">
-  <li *ngFor="let event of events" (click)="onSelect(event)" [class.selected]="event === selectedevent" style="width:130%;height:10%">
-    <span class="badge">{{event.id}}</span>
-    <span>{{event.name}}</span>
-    <button class="delete" (click)="delete(event); $event.stopPropagation()">x</button>
-</li>
-</ul>
-<div *ngIf="selectedevent">
-  <h2>
-    {{selectedevent.name | uppercase}}
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
+<div class="col-lg-6 offset-lg-3 mb-3" *ngFor="let event of events" (click)="onSelect(event)" >
+    <div class="card card-default">
+            <div class="col-12">
+                <div class="card-block">
+                    <h4 class="card-title">{{event.name}}</h4>
+                    <p class="card-text">{{event.hints}}</p>
+                    <p class="card-text">{{event.description}}</p>
+                    <a class="btn btn-danger pull-right" (click)="delete(event); $event.stopPropagation()">Delete</a>
+                </div>
+            </div>
+    </div>
 </div>
+
+
+
 </div>

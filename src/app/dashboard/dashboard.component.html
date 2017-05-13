@@ -1,8 +1,18 @@
 
 <h2>Newest Events</h2>
 <br>
-  <ul>
-    <li *ngFor="let event of events"  [routerLink]="['/detail', event.id]"  class="btn btn-outline-info btn-lg btn-block">
-    <h3 style="padding-bottom: 5%">{{event.name}}</h3> </li>
-    </ul>
+  
+    <div class="col-lg-6 offset-lg-3 mb-3" *ngFor="let event of events" (click)="onSelect(event)" [class.selected]="event === selectedevent">
+    <div class="card card-default ">
+            <div class="col-12">
+                <div class="card-block">
+                    <h4 class="card-title">{{event.name}}</h4>
+                    <p class="card-text">{{event.startingTime}}</p>
+                    <a href="#" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+    </div>
+</div>
+
+    
 
