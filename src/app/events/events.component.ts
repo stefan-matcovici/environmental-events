@@ -4,6 +4,16 @@ import { Router }            from '@angular/router';
 import { Event }                from '../models/event';
 import { EventService }         from '../services/event.service';
 
+import {  EventFormComponent  } from '../event-form/event-form.component'
+import 'rxjs/add/operator/switchMap';
+
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+
+
+import { MapComponent } from '../map/map.component';
+
+
 @Component({
   selector: 'my-events',
   templateUrl: './events.component.html',
@@ -12,6 +22,7 @@ import { EventService }         from '../services/event.service';
 })
 export class EventsComponent implements OnInit {
   events: Event[];
+  
   selectedevent: Event;
 
   constructor(

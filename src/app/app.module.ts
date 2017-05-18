@@ -18,6 +18,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventService } from './services/event.service';
 import { MapComponent } from './map/map.component';
 import { NguiMapModule} from '@ngui/map';
+import { EventFormComponent } from './event-form/event-form.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { NguiMapModule} from '@ngui/map';
     EventsComponent,
     EventDetailComponent,
     MapComponent,
+    EventFormComponent,
   ],
 
   providers: [EventService],

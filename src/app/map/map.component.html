@@ -1,4 +1,6 @@
-<div *ngIf="event">
+<div *ngIf="event; then thenBlock else elseBlock"> </div>
+
+<ng-template #thenBlock>
   <ngui-map zoom="9" center="{{event.location.latitude}},{{event.location.longitude}}">
     <marker (click)="showInfoWindow($event)" [position]=[event.location.latitude,event.location.longitude]></marker>
     <circle center="{{event.location.latitude}},{{event.location.longitude}}"
@@ -9,4 +11,16 @@
         radius={{1000*event.radius}}
         draggable="false"></circle>
   </ngui-map>
-</div>
+  
+  </ng-template> 
+
+  <ng-template #elseBlock>
+    <ngui-map zoom="7" center="53,10">
+            </ngui-map>
+
+  </ng-template> 
+
+
+
+ 
+
