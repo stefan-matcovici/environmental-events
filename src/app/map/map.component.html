@@ -1,8 +1,12 @@
 <div *ngIf="event">
-  <ngui-map zoom="9" center="{{event.location.latitude}},{{event.location.longitude}}" (mapClick)="showInfoWindow($event)">
-    <marker [position]=[event.location.latitude,event.location.longitude]></marker>
-    <circle center="{{event.location.latitude}},{{event.location.longitude}}" [strokeColor]="'#FF0000'" [strokeOpacity]="0.8"
-      [strokeWeight]="2" [editable]="false" radius={{1000*event.radius}} draggable="false">
-    </circle>
+  <ngui-map zoom="9" center="{{event.location.latitude}},{{event.location.longitude}}">
+    <marker (click)="showInfoWindow($event)" [position]=[event.location.latitude,event.location.longitude]></marker>
+    <circle center="{{event.location.latitude}},{{event.location.longitude}}"
+        [strokeColor]="'#FF0000'"
+        [strokeOpacity]="0.8"
+        [strokeWeight]="2"
+        [editable]="false"
+        radius={{1000*event.radius}}
+        draggable="false"></circle>
   </ngui-map>
 </div>
