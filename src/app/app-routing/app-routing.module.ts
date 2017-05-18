@@ -2,7 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent }   from '../dashboard/dashboard.component';
-import { EventsComponent }      from '../events/events.component';
+import { EventsComponent }      from '../events-list/events-list.component';
 import { EventDetailComponent }  from '../event-detail/event-detail.component';
 
 const routes: Routes = [

@@ -1,6 +1,6 @@
 import { Component, OnInit,Input  } from '@angular/core';
 import { NguiMapComponent } from '@ngui/map';
-import {Event} from '../models/event'
+import {Event} from '../models/events/event'
 
 @Component({
   selector: 'app-map',

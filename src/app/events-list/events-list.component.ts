@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 
-import { Event }                from '../models/event';
+import { Event }                from '../models/events/event';
 import { EventService }         from '../services/event.service';
 
 import {  EventFormComponent  } from '../event-form/event-form.component'
@@ -16,8 +16,8 @@ import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'my-events',
-  templateUrl: './events.component.html',
-  styleUrls: [ './events.component.css' ],
+  templateUrl: './events-list.component.html',
+  styleUrls: [ './events-list.component.css' ],
   providers: [EventService]
 })
 export class EventsComponent implements OnInit {

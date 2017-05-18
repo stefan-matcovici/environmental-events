@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Event } from '../models/event';
+import { Event } from '../models/events/event';
 import { EventService } from '../services/event.service';
 import { MapComponent } from '../map/map.component';
 

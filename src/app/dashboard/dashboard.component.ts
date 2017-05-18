@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import { Event }        from '../models/event';
+import { Event }        from '../models/events/event';
 import { EventService } from '../services/event.service';
 
 @Component({

@@ -12,7 +12,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EventsComponent } from './events/events.component';
+import { EventsComponent } from './events-list/events-list.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 
 import { EventService } from './services/event.service';

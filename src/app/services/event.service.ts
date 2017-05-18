@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Event } from '../models/event';
+import { Event } from '../models/events/event';
 
 @Injectable()
 export class EventService {

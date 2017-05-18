@@ -2,7 +2,7 @@ import { inject, fakeAsync, tick, TestBed } from '@angular/core/testing'
 import { MockBackend } from '@angular/http/testing'
 import { Http, ConnectionBackend, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 
-import { Event } from '../models/Event';
+import { Event } from '../models/events/event';
 import { EventService } from './event.service';
 
 describe('EventService', () => {

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NguiMapModule } from '@ngui/map';
-import { EventsComponent } from './events.component';
+import { EventsComponent } from './events-list.component';
 import { RouterTestingModule } from '@angular/router/testing'
 import { HttpModule } from '@angular/http';
 
@@ -33,11 +33,8 @@ describe('EventsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  /*it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  });*/
 
-    it('should create', () => {
-    
-  });
 });
