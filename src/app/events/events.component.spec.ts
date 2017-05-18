@@ -37,7 +37,4 @@ describe('EventsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-    it('should create', () => {
-    
-  });
 });
