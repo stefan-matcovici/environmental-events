@@ -1,7 +1,8 @@
 <br>
 
 <div class="card" *ngIf="event" style="width: 70rem;left:23.5%;">
-    <ul class="list-group list-group-flush" style="background-color: #ffffff">
+
+    <ul class="list-group list-group-flush" style="background-color: #ffffff" >
     <li class="list-group-item mx-auto" style="background-color:  #ffffff"><h2>{{event.name}} details!</h2></li>
     <li class="list-group-item" style="background-color: #ffffff"><label>Id: </label>{{event.id}}</li>
     <li class="list-group-item" style="background-color: #ffffff"><label>Date: </label>{{event.startingTime}}</li>
@@ -9,9 +10,10 @@
     <input [(ngModel)]="event.name" class="form-control" placeholder="name" style="margin:1%;width:25%;display:inline-block" ></li>
   </ul>
 
-   <app-map [event]="event" style="background-color: #ffffff; padding-bottom: 5px"></app-map>
+
+   <app-map [event]="event" style="background-color: #ffffff; padding-bottom: 5px ; margin-bottom: 5px"></app-map>
 
   <a (click)="goBack()" class="btn btn-outline-info btn-md btn-block " >Back</a>
   <a (click)="save()" class="btn btn-outline-info  btn-md btn-block " >Save</a>
-
+  
 </div>

@@ -1,8 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NguiMapModule } from '@ngui/map';
 import { EventsComponent } from './events.component';
 import { RouterTestingModule } from '@angular/router/testing'
 import { HttpModule } from '@angular/http';
+
+import { FormsModule } from '@angular/forms';
+
+import { MapComponent } from '../map/map.component'
+
+
+
+
 
 describe('EventsComponent', () => {
   let component: EventsComponent;
