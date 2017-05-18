@@ -28,14 +28,4 @@ describe('EventDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-   it('should have a defined component', () => {
-    let nav = fixture.nativeElement;
-    let list = nav.querySelectorAll('.list-group-item');
-
-    for (var i = 0; i < list.length; i++) {
-      console.log(list[i].style.backgroundColor);
-      expect(list[i].style.backgroundColor).toBe("black");
-    }
-  });
 });
