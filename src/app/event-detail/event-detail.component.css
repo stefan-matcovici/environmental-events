@@ -19,3 +19,29 @@ input {
   height:10%;
   
 }
+
+ul{
+  background-color: #ffffff
+
+}
+
+li{
+  background-color: #ffffff
+  
+}
+.card{
+  width: 70rem;
+  left:23.5vw;
+}
+
+.form-control{
+  margin:1%;
+  width:25%;
+  display:inline-block;
+}
+
+app-map{
+  background-color: #ffffff; 
+  padding-bottom: 5px ; 
+  margin-bottom: 5px
+}
