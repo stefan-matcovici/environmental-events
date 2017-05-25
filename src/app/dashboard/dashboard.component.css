@@ -1,6 +1,7 @@
 
 a {
   text-decoration: none;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 h2{
@@ -77,10 +78,12 @@ h4 {
 .notice-sm {
     padding: 10px;
     font-size: 80%;
+    font-family: 'Titillium Web', sans-serif;
 }
 .notice-lg {
     padding: 35px;
     font-size: large;
+    font-family: 'Titillium Web', sans-serif;
 }
 .notice-success {
     border-color: #5fc536

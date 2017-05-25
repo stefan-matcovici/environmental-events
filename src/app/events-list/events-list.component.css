@@ -108,12 +108,13 @@ h2{
   padding: 10px;
   box-sizing: border-box;
   font-size: 10px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 
 .form button {
   font-family:black, sans-serif;
-  
+  font-family: 'Titillium Web', sans-serif;
   outline: 0;
   background: #4CAF50;
   width: 100%;

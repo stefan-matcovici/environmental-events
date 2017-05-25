@@ -50,6 +50,7 @@
   height: 1.8em;
   margin-right: .8em;
   border-radius: 4px 4px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 button {
@@ -109,6 +110,7 @@ h2{
   padding: 10px;
   box-sizing: border-box;
   font-size: 10px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 
@@ -127,7 +129,7 @@ radioFIT {
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
-  
+  font-family: 'Titillium Web', sans-serif;
   
  
 }
@@ -138,6 +140,7 @@ radioFIT {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 12px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .form .register-form {
