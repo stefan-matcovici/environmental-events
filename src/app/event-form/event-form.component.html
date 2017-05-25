@@ -1,15 +1,69 @@
-
 <div class="myFormular">
-    
-         <div class="form">
+
+        <div class="form">
+
+                <input type="text" placeholder="Event Name" />
+                <input placeholder="Starting Time" class="textbox-n" type="text" onfocus="(this.type='date')" id="date">
+                <input placeholder="Ending Time" class="textbox-n" type="text" onfocus="(this.type='date')" id="date">
+                <input type="text" placeholder="Description" />
+                <input type="number" placeholder="Severity" />
            
-         <input type="text" placeholder="Event Name"  />
-         <input placeholder="Starting Time" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"> 
-         <input placeholder="Ending Time" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"> 
-         <input type="text" placeholder="Description"/>
-         <input type="text" placeholder="Severity"/>
-         <app-map [event]="event" ></app-map> 
-         <button> Add Event </button>
-         
-         </div>
- </div>
+                <p> Choose event type: 
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="1" style="width:7%">Earthquake 
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="2" style="width:7%">Fire 
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="3" style="width:7%">Flood 
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="4" style="width:7%">TerroristAttack
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="5" style="width:7%">Tornado
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="6" style="width:7%">MeteoEvent
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="7" style="width:7%">Tsunami 
+               
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="8" style="width:7%">Rain 
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="9" style="width:7%">Snow 
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="10" style="width:7%">Fog  
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="11" style="width:7%">Cold Weather  
+                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="12" style="width:7%">Canicular Weather </p>  
+
+                
+                 <div *ngIf="buildTool=='1'"  >
+                        <input type="number" placeholder="Richter Degree" />
+                        <input type="number" placeholder="Mercalli Degree" />
+                        <input type="number" placeholder="Depth" />
+                 </div>
+                 
+                 <div *ngIf="buildTool=='2'"  >
+                        <input type="number" placeholder="Speed" />
+                 </div>
+                 
+                 <div *ngIf="buildTool=='3'"  >
+                        <input type="number" placeholder="Precipitation Level" />
+                       
+                 </div>
+
+                 <div *ngIf="buildTool=='4'"  >
+                        <input type="number" placeholder="Number of terrorists" />
+                 </div>
+
+                 <div *ngIf="buildTool=='5'"  >
+                        <input type="number" placeholder="Windspeed" />
+                 </div>
+
+                 <div *ngIf="buildTool=='6'"  >
+                        <input type="text" placeholder="Rain density" />
+                   
+                 </div>
+
+                 <div *ngIf="buildTool=='7'"  >
+                        <input type="number" placeholder="Max Wave Heigth" />
+                 </div>
+
+                 
+                 
+               
+
+                <app-map [event]="event"></app-map>
+                <button> Add Event </button>
+           
+
+        </div>
+</div>
+
