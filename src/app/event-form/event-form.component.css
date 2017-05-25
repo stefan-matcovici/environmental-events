@@ -60,6 +60,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  margin-top:20px;
 }
 
 button:hover {
@@ -136,5 +137,11 @@ h2{
 
 .form .register-form {
   display: none;
+}
+
+app-map {
+ background-color: #ffffff; 
+ padding-bottom: 5px ;  
+ margin-bottom: 30px;
 }
 

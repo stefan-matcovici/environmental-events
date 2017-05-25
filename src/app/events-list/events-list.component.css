@@ -138,3 +138,7 @@ h2{
   display: none;
 }
 
+.container{
+  padding-left:3%; 
+  margin-top:70px;
+}

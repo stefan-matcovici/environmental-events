@@ -1,6 +1,6 @@
 <h2>
   Newest Events</h2>
 <br>
-<ngui-map zoom="2">
+<ngui-map zoom="2" class="harta">
   <marker (click)="details($event,event)" *ngFor="let event of events" [position]=[event.location.latitude,event.location.longitude]></marker>
 </ngui-map>
