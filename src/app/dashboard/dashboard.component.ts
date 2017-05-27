@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   }
 
   sortedEvents(): Event[] {
-    return this.events.sort((a: Event, b: Event) => { if (a.startingTime > b.startingTime) return -1; else if (a.startingTime < b.startingTime) return 1; else return 0; });
+    return this.events.sort((a: Event, b: Event) => { if (a.startingDate > b.startingDate) return -1; else if (a.startingDate < b.startingDate) return 1; else return 0; });
   }
 
   details(_a,event) {

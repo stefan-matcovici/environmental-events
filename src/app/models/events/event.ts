@@ -1,13 +1,12 @@
 export class Event {
-  id: number;
-  name: string;
-  startingTime: Date;
-  endingTime: Date;
-  severity: string;
   description: string;
-  location: {latitude:number,longitude:number};
   hints: string;
-  //latitude: number;
-  //longitude: number;
+  id: number;
+  latitude: number;
+  longitude: number;
+  name: string;
   radius: number;
+  severity: string;
+  endingDate: Date;
+  startingDate: Date;
 }
