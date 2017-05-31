@@ -2,34 +2,36 @@
 
         <div class="form">
 
-                <input required [(ngModel)]="name" type="text" placeholder="Event Name" >
-                <input [(ngModel)]="startingDate" placeholder="Starting Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date">
-                <input [(ngModel)]="endingDate" placeholder="Ending Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date">
-                <input [(ngModel)]="description" type="text" placeholder="Description">
-                <input [(ngModel)]="hints" type="text" placeholder="Hints">
-                <input [(ngModel)]="radius" type="number" placeholder="Radius">
-                <select [(ngModel)]="severity" class="m-2 form-control-lg">
+                <input [(ngModel)]="name" type="text" placeholder="Event Name" required>
+                <input [(ngModel)]="startingDate" placeholder="Starting Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date" required>
+                <input [(ngModel)]="endingDate" placeholder="Ending Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date" required>
+                <input [(ngModel)]="description" type="text" placeholder="Description" required>
+                <input [(ngModel)]="hints" type="text" placeholder="Hints" required>
+                <input [(ngModel)]="radius" type="number" placeholder="Radius" required>
+                <label><b>Choose event severity:</b></label>
+                <select [(ngModel)]="severity" class="m-2 form-control-lg" required>
                         <option style="background-color:red">RED</option>
                         <option style="background-color:green">GREEN</option>
                         <option style="background-color:orange">ORANGE</option>
                         <option style="background-color:yellow">YELLOW</option>
                 </select>
            
-                <p> Choose event type:
-
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="1" style="width:7%" (click)="changeType('earthquake')">Earthquake 
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="2" style="width:7%" (click)="changeType('fire')">Fire 
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="3" style="width:7%" (click)="changeType('flood')">Flood 
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="4" style="width:7%" (click)="changeType('terroristAttack')">TerroristAttack
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="5" style="width:7%" (click)="changeType('tornado')">Tornado
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="6" style="width:7%" (click)="changeType('meteoevent')">MeteoEvent
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="7" style="width:7%" (click)="changeType('tsunami')">Tsunami 
-               
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="8" style="width:7%" (click)="changeType('meteoevent')">Rain 
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="9" style="width:7%" (click)="changeType('meteoevent')">Snow 
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="10" style="width:7%" (click)="changeType('meteoevent')">Fog  
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="11" style="width:7%" (click)="changeType('meteoevent')">Cold Weather  
-                <input type="radio" [(ngModel)]="buildTool" name="buildTool" value="12" style="width:7%" (click)="changeType('meteoevent')">Canicular Weather </p>  
+                <p> <b>Choose event type:</b>
+                <select [(ngModel)]="buildTool" class="m-2 form-control-lg" required>
+                        <option value="1" (click)="changeType('earthquake')">Earthquake</option>
+                        <option value="2" (click)="changeType('fire')">Fire</option>
+                        <option value="3" (click)="changeType('flood')">Flood</option>
+                        <option value="4" (click)="changeType('terroristAttack')">Terrorist Attack</option>
+                        <option value="5" (click)="changeType('tornado')">Tornado</option>
+                        <option value="6" (click)="changeType('meteoEvent')">Meteo Event</option>
+                        <option value="7" (click)="changeType('tsunami')">Tsunami</option>
+                        <option value="8" (click)="changeType('meteoEvent')">Rain</option>
+                        <option value="9" (click)="changeType('meteoEvent')">Snow</option>
+                        <option value="10" (click)="changeType('meteoEvent')">Fog</option>
+                        <option value="11" (click)="changeType('meteoEvent')">Cold Weather</option>
+                        <option value="12" (click)="changeType('meteoEvent')">Canicular Weather</option>
+                </select>
+                </p>  
 
                 
                  <div *ngIf="buildTool=='1'">
@@ -67,7 +69,7 @@
 
                 <app-map [event]="event" [(ngModel)]="radius" [editable]="true" [radius]="radius" (positionChanged)="onPositionChanged($event)" ngDefaultControl></app-map>
                 
-                <button (click)="create()" > Add Event </button>
+                <button (click)="create()"> Add Event </button>
 
         </div>
 </div>
