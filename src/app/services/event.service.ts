@@ -4,19 +4,32 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Event } from '../models/events/event';
+import {Fire} from '../models/events/fire';
 
 @Injectable()
 export class EventService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private eventsUrl = 'api/events';  // URL to web api
+  private eventsUrl = 'http://localhost:8080/v1/events';  // URL to web api
+  private typesUrl = 'http://localhost:8080/v1/eventMappings';  // URL to event type
 
   constructor(private http: Http) { }
 
   getEvents(): Promise<Event[]> {
     return this.http.get(this.eventsUrl)
                .toPromise()
-               .then(response => response.json().data as Event[])
+               .then(response => {
+                  let list = new Array<Event>();
+                  for (let element of response.json())
+                  {
+                    let jsonObject = element;
+                    let event = this.toEvent(jsonObject);
+                    this.http.get(`${this.typesUrl}/${jsonObject.id}`).toPromise().then(response => response.json().eventType as string).then(eventType => event.type = eventType);
+                    list.push(event);
+                  }
+                  
+                  return list;
+                })
                .catch(this.handleError);
   }
 
@@ -25,7 +38,7 @@ export class EventService {
     const url = `${this.eventsUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Event)
+      .then(response => response.json() as Event)
       .catch(this.handleError);
   }
 
@@ -37,12 +50,16 @@ export class EventService {
       .catch(this.handleError);
   }
 
-  create(name: string): Promise<Event> {
-    return this.http
-      .post(this.eventsUrl, JSON.stringify({name: name}), {headers: this.headers})
-      .toPromise()
-      .then(res => res.json().data as Event)
+  create(event,type): Promise<any> {
+    console.log(event);
+    return this.http.post(`${this.eventsUrl}/${type}`,event,{headers: this.headers}).toPromise().then(res => res.json().data as Event)
       .catch(this.handleError);
+
+    // return this.http
+    //   .post(this.eventsUrl, JSON.stringify({name: name}), {headers: this.headers})
+    //   .toPromise()
+    //   .then(res => res.json().data as Event)
+    //   .catch(this.handleError);
   }
 
   update(event: Event): Promise<Event> {
@@ -52,6 +69,31 @@ export class EventService {
       .toPromise()
       .then(() => event)
       .catch(this.handleError);
+  }
+
+  getFullEvent(id:number,type:string): Promise<any> {
+    const url = `${this.eventsUrl}/${type}/${id}`;
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(event => event.json())
+      .catch(this.handleError);
+  }
+
+  private toEvent(json: any): Event{
+    let e = new Event();
+    e.name = json.name;
+    e.description = json.description;
+    e.endingDate = new Date(json.endingDate * 1000);
+    e.startingDate = new Date(json.startingDate * 1000)
+    e.hints = json.hints;
+    e.id = json.id;
+    e.latitude = json.latitude;
+    e.longitude = json.longitude;
+    e.severity = json.severity;
+    e.radius = json.radius;
+    
+    return e;
   }
 
   private handleError(error: any): Promise<any> {

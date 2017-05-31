@@ -2,5 +2,18 @@
   Newest Events</h2>
 <br>
 <ngui-map zoom="2" class="harta">
-  <marker (click)="details($event,event)" *ngFor="let event of events" [position]=[event.latitude,event.longitude]></marker>
+  <custom-marker (click)="details($event,event)" *ngFor="let event of events" [position]=[event.latitude,event.longitude]>
+    <div>
+          <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/32/cloud-icon.png" />
+    </div>
+  </custom-marker>
+  <marker (click)="details($event,event)" *ngFor="let event of events" [position]=[event.latitude,event.longitude]>
+  </marker>
+  <circle *ngFor="let event of events"
+          center="{{event.latitude}},{{event.longitude}}"
+          [strokeColor]="'#FF0000'"
+          [strokeOpacity]="0.8"
+          [strokeWeight]="1"
+          radius="{{event.radius}}"
+          ></circle>
 </ngui-map>

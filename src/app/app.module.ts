@@ -18,6 +18,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventService } from './services/event.service';
 import { MapComponent } from './map/map.component';
 import { NguiMapModule} from '@ngui/map';
+import {NguiUtilsModule} from '@ngui/utils';
 import { EventFormComponent } from './event-form/event-form.component';
 
 @NgModule({
@@ -25,7 +26,7 @@ import { EventFormComponent } from './event-form/event-form.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService,{passThruUnknownUrl: true}),
+    //InMemoryWebApiModule.forRoot(InMemoryDataService,{passThruUnknownUrl: true}),
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'}),
     AppRoutingModule,
   ],

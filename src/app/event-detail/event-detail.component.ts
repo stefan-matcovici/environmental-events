@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { Event } from '../models/events/event';
 import { EventService } from '../services/event.service';
 import { MapComponent } from '../map/map.component';
+import {Fire} from '../models/events/fire';
 
 @Component({
   selector: 'event-detail',
@@ -14,24 +15,29 @@ import { MapComponent } from '../map/map.component';
   providers: [EventService]
 })
 export class EventDetailComponent implements OnInit {
-  event: Event;
+  event;
+  type:string;
 
   constructor(
     private eventService: EventService,
     private route: ActivatedRoute,
     private location: Location
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) => this.eventService.getEvent(+params['id']))
-      .subscribe(event => this.event = event);
+      .switchMap((params: Params) => 
+      {
+        this.type = params['type'];
+        return this.eventService.getFullEvent(params['id'],params['type'].toLowerCase());
+      })
+      .subscribe(event => {console.log(event);this.event=event;});
   }
 
-  save(): void {
-    this.eventService.update(this.event)
-      .then(() => this.goBack());
-  }
+   save(): void {
+     this.eventService.update(this.event)
+       .then(() => this.goBack());
+   }
 
   goBack(): void {
     this.location.back();

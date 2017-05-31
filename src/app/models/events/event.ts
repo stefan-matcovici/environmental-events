@@ -9,4 +9,5 @@ export class Event {
   severity: string;
   endingDate: Date;
   startingDate: Date;
+  type:string;
 }

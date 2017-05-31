@@ -3,11 +3,13 @@
 <div class="card" *ngIf="event">
 
     <ul class="list-group list-group-flush">
-    <li class="list-group-item mx-auto"><h2>{{event.name}} details</h2></li>
-    <li class="list-group-item" ><label>Id: </label>{{event.id}}</li>
-    <li class="list-group-item" ><label>Date: </label>{{event.startingDate}}</li>
-    <li class="list-group-item" ><label>Name: </label>{{event.name}}
-    <input [(ngModel)]="event.name" class="form-control" placeholder="name" ></li>
+    <li class="list-group-item mx-auto"><h2>{{type}} details</h2></li>
+    <li class="list-group-item" ><label>Starts: </label>{{event.startingDate | date:'fullDate'}}</li>
+    <li class="list-group-item" ><label>Ends: </label>{{event.endingDate | date:'fullDate'}}</li>
+    <li class="list-group-item" ><label>Description: </label>{{event.description}}
+    <li class="list-group-item" ><label>Hints: </label>{{event.hints}}
+
+    <li *ngIf="type=='Fire'" class="list-group-item" ><label>Speed:</label>{{event.speed}}
   </ul>
 
    <app-map [event]="event"></app-map>

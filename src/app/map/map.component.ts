@@ -1,6 +1,7 @@
-import { Component, OnInit,Input  } from '@angular/core';
-import { NguiMapComponent } from '@ngui/map';
+import { Component, OnInit,Input, EventEmitter, Output  } from '@angular/core';
 import {Event} from '../models/events/event'
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'app-map',
@@ -8,12 +9,26 @@ import {Event} from '../models/events/event'
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  
+  @Input() event: Event;
+  @Input() editable: boolean;
+  @Input() radius: number;
+  @Output() positionChanged = new EventEmitter<any>();
+  position: google.maps.LatLng;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
 
-  @Input() event: Event;
+  onClick(event) {
+    if (event instanceof MouseEvent)
+        return;
+    this.position = event.latLng;
+    this.positionChanged.emit(this.position);
+    event.target.panTo(event.latLng);
+  }
+
+
   
 }

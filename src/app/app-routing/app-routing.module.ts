@@ -8,7 +8,7 @@ import { EventDetailComponent }  from '../event-detail/event-detail.component';
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard',  component: DashboardComponent },
-  { path: 'detail/:id', component: EventDetailComponent },
+  { path: 'detail/:type/:id', component: EventDetailComponent },
   { path: 'events',     component: EventsComponent }
 ];
 

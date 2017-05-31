@@ -11,7 +11,7 @@
           <p class="card-text">{{event.hints}}</p>
           <p class="card-text">{{event.description}}</p>
           <a class="mb-2 mx-2 btn btn-danger pull-right" (click)="delete(event); $event.stopPropagation()">Delete</a>
-          <a class="mb-2 mx-2 btn btn-success pull-right"> Edit </a> 
+          <a class="mb-2 mx-2 btn btn-success pull-right" (click)="edit(event)"> Edit </a> 
         </div>
       </div>
     </div>

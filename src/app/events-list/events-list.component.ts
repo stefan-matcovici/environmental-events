@@ -35,16 +35,6 @@ export class EventsComponent implements OnInit {
         .then(events => this.events = events);
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.eventService.create(name)
-      .then(event => {
-        this.events.push(event);
-        this.selectedevent = null;
-      });
-  }
-
   delete(event: Event): void {
     this.eventService
         .delete(event.id)
@@ -62,7 +52,7 @@ export class EventsComponent implements OnInit {
     this.selectedevent = event;
   }
 
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedevent.id]);
+  edit(): void {
+    this.router.navigate(['/detail/edit', this.selectedevent.id]);
   }
 }

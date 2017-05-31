@@ -20,12 +20,17 @@ export class DashboardComponent implements OnInit {
   events: Event[] = [];
   selectedEvent: Event;
   lat:number;
+  map:google.maps.Map;
 
   constructor(private eventService: EventService,private location: Location) { }
 
   ngOnInit(): void {
     this.eventService.getEvents()
-      .then(events => this.events = events.slice(0, 5));
+      .then(events => {
+        this.events = events.slice(0, 5);
+        console.log(this.events);
+        }
+    );
   }
 
   sortedEvents(): Event[] {
@@ -33,8 +38,7 @@ export class DashboardComponent implements OnInit {
   }
 
   details(_a,event) {
-
-    this.location.go("/detail/"+ event.id,"");
+    this.location.go("/detail/" + event.type + "/" + event.id,"");
     window.location.reload();
   }
 
