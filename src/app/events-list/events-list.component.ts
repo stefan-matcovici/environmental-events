@@ -24,7 +24,8 @@ export class EventsComponent implements OnInit {
   events: Event[];
   
   selectedevent: Event;
-  userId:number = 2;
+  
+  userId:string;
 
   constructor(
     private eventService: EventService,
@@ -46,8 +47,6 @@ export class EventsComponent implements OnInit {
         });
   }
 
-
-
   redirect(event: Event): void
   {
     //this.router.navigateByUrl('/edit/{{event.id}}');
@@ -58,6 +57,8 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userId = sessionStorage.getItem('id');
+    console.log(this.userId);
     this.getevents();
   }
 

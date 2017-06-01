@@ -5,10 +5,6 @@ export class DashboardPage {
     return browser.get('/dashboard'); // for each page - test elements (css)
   }
 
-  getHeading(){
-    return element(by.css('h2'));
-  }
-
   getNguiMap(){
     return element(by.tagName('ngui-map'));
   }
@@ -60,7 +56,7 @@ export class EventsPage {
 
 export class EventDetailsPage {
   navigateTo() {
-    return browser.get('detail/15');
+    return browser.get('detail/16');
   }
 
   getCardBlock(){

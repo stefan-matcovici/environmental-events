@@ -3,17 +3,17 @@
         <div class="form">
 
                 <input [(ngModel)]="name" type="text" placeholder="Event Name">
-                <input [(ngModel)]="startingDate" placeholder="Starting Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date">
-                <input [(ngModel)]="endingDate" placeholder="Ending Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date">
+                <input [(ngModel)]="startingDate" placeholder="Starting Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date1">
+                <input [(ngModel)]="endingDate" placeholder="Ending Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date2">
                 <input [(ngModel)]="description" type="text" placeholder="Description">
                 <input [(ngModel)]="hints" type="text" placeholder="Hints">
                 <input [(ngModel)]="radius" type="number" placeholder="Radius">
                 <label><b>Choose event severity:</b></label>
                 <select [(ngModel)]="severity" class="m-2 form-control-lg">
-                        <option style="background-color:red">RED</option>
-                        <option style="background-color:green">GREEN</option>
-                        <option style="background-color:orange">ORANGE</option>
-                        <option style="background-color:yellow">YELLOW</option>
+                        <option style="color:green; font-weight:bold">GREEN</option>
+                        <option style="color:#dbce25; font-weight:bold">YELLOW</option>
+                        <option style="color:orange; font-weight:bold">ORANGE</option>
+                        <option style="color:red; font-weight:bold">RED</option>  
                 </select>
            
                 <p> <b>Choose event type:</b>
@@ -66,7 +66,7 @@
 
                 <app-map [event]="event" [(ngModel)]="radius" [editable]="true" [radius]="radius" (positionChanged)="onPositionChanged($event)" ngDefaultControl></app-map>
                 
-                <button (click)="create()"> Add Event </button>
+                <button (click)="create()" class="btn btn-info"> Add Event </button>
 
         </div>
 </div>

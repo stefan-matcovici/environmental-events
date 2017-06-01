@@ -54,12 +54,13 @@ export class EventFormComponent implements OnInit {
   {
     this.event.name=this.name;
     this.event.startingDate=this.startingDate;
-    this.event.endingDate=this.startingDate;
+    this.event.endingDate=this.endingDate;
     this.event.description=this.description;
     this.event.hints=this.hints;
     this.event.radius=this.radius;
     this.event.severity=this.severity;
-    this.event.userId=2;
+    this.event.userId=sessionStorage.getItem('id');
+
     switch(this.type)
     {
       case 'fire':
@@ -79,7 +80,7 @@ export class EventFormComponent implements OnInit {
       case 'tornado':
         this.event.windspeed=this.windspeed;
       break;
-      case 'meteoEvent':
+      case 'meteoevent':
         this.event.humidity=this.humidity;
         this.event.precipitationLevel=this.precipitationLevel;
         this.event.temperature=this.temperature;
@@ -88,7 +89,7 @@ export class EventFormComponent implements OnInit {
         this.event.maxWaveHeight=this.maxWaveHeight;
       break;
     }
-    console.dir(this.event);
+    console.log(this.event);
     this.eventService.create(this.event,this.type);
     window.location.reload();
   }

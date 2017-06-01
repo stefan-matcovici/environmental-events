@@ -16,7 +16,12 @@ export class ProxyComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {this.userId = (params['id']);});
+    this.route.params.subscribe(params => {
+      this.userId = (params['id']);
+      sessionStorage.setItem('id',this.userId);
+      console.log('yay');
+      window.location.replace('/dashboard');
+    });
   }
 
 }

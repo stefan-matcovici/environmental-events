@@ -5,6 +5,7 @@ import { Event } from '../models/events/event';
 import { EventService } from '../services/event.service';
 
 import { Location } from '@angular/common';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'my-dashboard',
@@ -14,24 +15,64 @@ import { Location } from '@angular/common';
 
 })
 
-
 export class DashboardComponent implements OnInit {
 
   events: Event[] = [];
   selectedEvent: Event;
   lat:number;
   map:google.maps.Map;
-  @Input() userId : string;
+  color:string = '#FF0000';
+  userId:string;
+  icons = [
+    {
+      name: 'Rain',
+      icon: 'http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/32/cloud-icon.png'
+    },
+    {
+      name: 'Fog',
+      icon: 'http://icons.iconarchive.com/icons/icons-land/weather/32/Fog-icon.png'
+    },
+    {
+      name: 'Fire',
+      icon: 'http://icons.iconarchive.com/icons/iconka/pioneer-camp/32/fire-icon.png'
+    },
+    {
+      name: 'Flood',
+      icon: 'https://www.iconfinder.com/data/icons/property-insurance/256/Flood_Insurance-32.png'
+    },
+    {
+      name: 'Terrorist Attack',
+      icon: 'http://icons.iconarchive.com/icons/icons8/windows-8/32/Military-Rifle-icon.png'
+    },
+    {
+      name: 'Tornado',
+      icon: 'http://icons.iconarchive.com/icons/large-icons/large-weather/32/tornado-icon.png'
+    },
+    {
+      name: 'Tsunami',
+      icon: 'https://www.iconfinder.com/data/icons/disasters/91/tsunami_water_wave_element-32.png'
+    },
+    {
+      name: 'MeteoEvent',
+      icon: 'http://icons.iconarchive.com/icons/aha-soft/free-3d-glossy/32/Thermometer-icon.png'
+    },
+    {
+      name: 'Earthquake',
+      icon: 'http://icons.iconarchive.com/icons/icons8/windows-8/32/Weather-Earthquakes-icon.png'
+    }
+  ];
 
   constructor(private eventService: EventService,private location: Location) { }
 
   ngOnInit(): void {
+    
     this.eventService.getEvents()
       .then(events => {
-        this.events = events.slice(0, 5);
+        this.events = events.slice(0, 8);
         console.log(this.events);
         }
     );
+    console.log(this.userId);
   }
 
   sortedEvents(): Event[] {

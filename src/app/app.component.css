@@ -3,15 +3,45 @@ h1 {
   color: #999;
   margin-bottom: 0;
 }
+
 h2 {
   font-size: 2em;
   margin-top: 0;
   padding-top: 0;
   font-family: 'Titillium Web', sans-serif;
 }
+
+h3 {
+  padding: 0em;
+  padding-top: 0.15em;
+  margin: 0;
+  font-size: 3em;
+  color: grey;
+}
+
 ul {
   display: inline-block;
 }
+
 html,body{
-    background-color: #3c3939;
+  background-color: #3c3939;
+  overflow-x: hidden;
+}
+
+.nav-right-element {
+  padding-top: 0.2em;
+  padding-left: 0;
+  padding-right: 2em;
+  font-size: 1.5em;
+}
+
+.nav-first-right-element {
+  padding-top: 0.2em;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 1.5em;
+}
+
+nav {
+  border-radius: 0;
 }

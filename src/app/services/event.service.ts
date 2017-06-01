@@ -97,7 +97,6 @@ export class EventService {
     e.severity = json.severity;
     e.radius = json.radius;
     e.userId = json.userId;
-    
     return e;
   }
 

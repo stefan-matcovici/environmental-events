@@ -1,19 +1,18 @@
-<h2>
-  Newest Events</h2>
+
 <br>
 <ngui-map zoom="2" minZoom="2" class="harta">
   <custom-marker (click)="details($event,event)" *ngFor="let event of events" [position]=[event.latitude,event.longitude]>
     <div>
-          <img *ngIf="event.type=='Rain'" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/32/cloud-icon.png" />
-          <img *ngIf="event.type=='Fog'" src="http://icons.iconarchive.com/icons/icons-land/weather/32/Fog-icon.png" />
-          <img *ngIf="event.type=='Fire'" src="http://icons.iconarchive.com/icons/iconka/pioneer-camp/32/fire-icon.png" />
-          <img *ngIf="event.type=='Flood'" src="https://www.iconfinder.com/data/icons/property-insurance/256/Flood_Insurance-32.png" />
-          <img *ngIf="event.type=='TerroristAttack'" src="http://icons.iconarchive.com/icons/icons8/windows-8/32/Military-Rifle-icon.png" />
-          <img *ngIf="event.type=='Tornado'" src="http://icons.iconarchive.com/icons/large-icons/large-weather/32/tornado-icon.png" />
-          <img *ngIf="event.type=='Tsunami'" src="https://www.iconfinder.com/data/icons/disasters/91/tsunami_water_wave_element-32.png" />
-          <img *ngIf="event.type=='CanicularWeather'" src="http://icons.iconarchive.com/icons/aha-soft/free-3d-glossy/32/Thermometer-icon.png" />
-          <img *ngIf="event.type=='ColdWeather'" src="http://icons.iconarchive.com/icons/icons-land/weather/32/Thermometer-Snowflake-icon.png" />
-          <img *ngIf="event.type=='Earthquake'" src="http://icons.iconarchive.com/icons/icons8/windows-8/32/Weather-Earthquakes-icon.png" />
+      <b>{{event.name}}</b>
+      <img *ngIf="event.type=='Rain'" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/32/cloud-icon.png" />
+      <img *ngIf="event.type=='Fog'" src="http://icons.iconarchive.com/icons/icons-land/weather/32/Fog-icon.png" />
+      <img *ngIf="event.type=='Fire'" src="http://icons.iconarchive.com/icons/iconka/pioneer-camp/32/fire-icon.png" />
+      <img *ngIf="event.type=='Flood'" src="https://www.iconfinder.com/data/icons/property-insurance/256/Flood_Insurance-32.png" />
+      <img *ngIf="event.type=='TerroristAttack'" src="http://icons.iconarchive.com/icons/icons8/windows-8/32/Military-Rifle-icon.png" />
+      <img *ngIf="event.type=='Tornado'" src="http://icons.iconarchive.com/icons/large-icons/large-weather/32/tornado-icon.png" />
+      <img *ngIf="event.type=='Tsunami'" src="https://www.iconfinder.com/data/icons/disasters/91/tsunami_water_wave_element-32.png" />
+      <img *ngIf="event.type=='MeteoEvent'" src="http://icons.iconarchive.com/icons/aha-soft/free-3d-glossy/32/Thermometer-icon.png" />
+      <img *ngIf="event.type=='Earthquake'" src="http://icons.iconarchive.com/icons/icons8/windows-8/32/Weather-Earthquakes-icon.png" />
     </div>
   </custom-marker>
   <marker (click)="details($event,event)" *ngFor="let event of events" [position]=[event.latitude,event.longitude]>
@@ -26,3 +25,10 @@
           radius="{{event.radius}}"
           ></circle>
 </ngui-map>
+
+<!--<div *ngFor="let icon of icons" >
+  <img src="{{icon.icon}}"/> <p> - {{icon.name}} </p>
+</div>-->
+  
+  
+
