@@ -26,8 +26,107 @@
 
     <li *ngIf="type=='Fire'" class="list-group-item" ><label>Speed:</label> <br>
     
-    
-     <input [(ngModel)]="event.speed" type="text" placeholder="{{event.speed}}">
+    <input *ngIf="type=='Fire'"   [(ngModel)]="event.speed" type="text" placeholder="{{event.speed}}">
+
+    <li *ngIf="type=='Flood'" class="list-group-item" ><label>Precipitation level:</label> <br>
+  
+    <input *ngIf="type=='Flood'"   [(ngModel)]="event.precipitationLevel" type="text" placeholder="{{event.precipitationLevel}}">
+
+    <li *ngIf="type=='Tornado'" class="list-group-item" ><label>Windspeed:</label> <br>
+  
+    <input *ngIf="type=='Tornado'"   [(ngModel)]="event.windspeed" type="text" placeholder="{{event.windspeed}}">
+
+    <li *ngIf="type=='Tsunami'" class="list-group-item" ><label>Max Wave Height:</label> <br>
+  
+    <input *ngIf="type=='Tsunami'"   [(ngModel)]="event.maxWaveHeight" type="text" placeholder="{{event.maxWaveHeight}}">
+
+    <li *ngIf="type=='Earthquake'" class="list-group-item" ><label>Richter Degree:</label> <br>
+  
+    <input *ngIf="type=='Earthquake'"   [(ngModel)]="event.richterDegree" type="text" placeholder="{{event.richterDegree}}">
+
+    <li *ngIf="type=='Earthquake'" class="list-group-item" ><label>Mercalli Degree:</label> <br>
+
+    <input *ngIf="type=='Earthquake'"   [(ngModel)]="event.mercalliDegree" type="text" placeholder="{{event.mercalliDegree}}">
+
+    <li *ngIf="type=='Earthquake'" class="list-group-item" ><label>Depth:</label> <br>
+
+    <input *ngIf="type=='Earthquake'"   [(ngModel)]="event.depth" type="text" placeholder="{{event.depth}}">
+
+    <li *ngIf="type=='Rain'" class="list-group-item" ><label>Humidity:</label> <br>
+  
+    <input *ngIf="type=='Rain'"   [(ngModel)]="event.humidity" type="text" placeholder="{{event.humidity}}">
+
+    <li *ngIf="type=='Rain'" class="list-group-item" ><label>Precipitation Level:</label> <br>
+
+    <input *ngIf="type=='Rain'"   [(ngModel)]="event.precipitationLevel" type="text" placeholder="{{event.precipitationLevel}}">
+
+    <li *ngIf="type=='Rain'" class="list-group-item" ><label>Temperature:</label> <br>
+
+    <input *ngIf="type=='Rain'"   [(ngModel)]="event.temperature" type="text" placeholder="{{event.temperature}}">
+
+    <li *ngIf="type=='Fog'" class="list-group-item" ><label>Humidity:</label> <br>
+  
+    <input *ngIf="type=='Fog'"   [(ngModel)]="event.humidity" type="text" placeholder="{{event.humidity}}">
+
+    <li *ngIf="type=='Fog'" class="list-group-item" ><label>Precipitation Level:</label> <br>
+
+    <input *ngIf="type=='Fog'"   [(ngModel)]="event.precipitationLevel" type="text" placeholder="{{event.precipitationLevel}}">
+
+    <li *ngIf="type=='Fog'" class="list-group-item" ><label>Temperature:</label> <br>
+
+    <input *ngIf="type=='Fog'"   [(ngModel)]="event.temperature" type="text" placeholder="{{event.temperature}}">
+
+    <li *ngIf="type=='Snow'" class="list-group-item" ><label>Humidity:</label> <br>
+  
+    <input *ngIf="type=='Snow'"   [(ngModel)]="event.humidity" type="text" placeholder="{{event.humidity}}">
+
+    <li *ngIf="type=='Snow'" class="list-group-item" ><label>Precipitation Level:</label> <br>
+
+    <input *ngIf="type=='Snow'"   [(ngModel)]="event.precipitationLevel" type="text" placeholder="{{event.precipitationLevel}}">
+
+    <li *ngIf="type=='Snow'" class="list-group-item" ><label>Temperature:</label> <br>
+
+    <input *ngIf="type=='Snow'"   [(ngModel)]="event.temperature" type="text" placeholder="{{event.temperature}}">
+
+    <li *ngIf="type=='MeteoEvent'" class="list-group-item" ><label>Humidity:</label> <br>
+  
+    <input *ngIf="type=='MeteoEvent'"   [(ngModel)]="event.humidity" type="text" placeholder="{{event.humidity}}">
+
+    <li *ngIf="type=='MeteoEvent'" class="list-group-item" ><label>Precipitation Level:</label> <br>
+
+    <input *ngIf="type=='MeteoEvent'"   [(ngModel)]="event.precipitationLevel" type="text" placeholder="{{event.precipitationLevel}}">
+
+    <li *ngIf="type=='MeteoEvent'" class="list-group-item" ><label>Temperature:</label> <br>
+
+    <input *ngIf="type=='MeteoEvent'"   [(ngModel)]="event.temperature" type="text" placeholder="{{event.temperature}}">
+
+    <li *ngIf="type=='CanicularWeather'" class="list-group-item" ><label>Humidity:</label> <br>
+  
+    <input *ngIf="type=='CanicularWeather'"   [(ngModel)]="event.humidity" type="text" placeholder="{{event.humidity}}">
+
+    <li *ngIf="type=='CanicularWeather'" class="list-group-item" ><label>Precipitation Level:</label> <br>
+
+    <input *ngIf="type=='CanicularWeather'"   [(ngModel)]="event.precipitationLevel" type="text" placeholder="{{event.precipitationLevel}}">
+
+    <li *ngIf="type=='CanicularWeather'" class="list-group-item" ><label>Temperature:</label> <br>
+
+    <input *ngIf="type=='CanicularWeather'"   [(ngModel)]="event.temperature" type="text" placeholder="{{event.temperature}}">
+
+    <li *ngIf="type=='ColdWeather'" class="list-group-item" ><label>Humidity:</label> <br>
+  
+    <input *ngIf="type=='ColdWeather'"   [(ngModel)]="event.humidity" type="text" placeholder="{{event.humidity}}">
+
+    <li *ngIf="type=='ColdWeather'" class="list-group-item" ><label>Precipitation Level:</label> <br>
+
+    <input *ngIf="type=='ColdWeather'"   [(ngModel)]="event.precipitationLevel" type="text" placeholder="{{event.precipitationLevel}}">
+
+    <li *ngIf="type=='ColdWeather'" class="list-group-item" ><label>Temperature:</label> <br>
+
+    <input *ngIf="type=='ColdWeather'"   [(ngModel)]="event.temperature" type="text" placeholder="{{event.temperature}}">
+
+    <!--<li *ngIf="type=='TerroristAttack'" class="list-group-item" ><label>Number of terrorists:</label> <br>
+
+    <input *ngIf="type=='TerroristAttack'"   [(ngModel)]="event.numberOfTerrorists" type="text" placeholder="{{event.numberOfTerrorists}}">-->
 
     <!--<p>{{event.speed}}</p></li>-->
   </ul>
