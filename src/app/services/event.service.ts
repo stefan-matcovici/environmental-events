@@ -64,8 +64,10 @@ export class EventService {
     //   .catch(this.handleError);
   }
 
-  update(event: Event): Promise<Event> {
-    const url = `${this.eventsUrl}/${event.id}`;
+  update(event,type): Promise<any> {
+    var localtype = type.toLowerCase();
+    console.log(localtype);
+    const url = this.eventsUrl+`/${localtype}/${event.id}`;
     return this.http
       .put(url, JSON.stringify(event), {headers: this.headers})
       .toPromise()
@@ -94,6 +96,7 @@ export class EventService {
     e.longitude = json.longitude;
     e.severity = json.severity;
     e.radius = json.radius;
+    e.userId = json.userId;
     
     return e;
   }

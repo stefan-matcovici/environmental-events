@@ -24,16 +24,17 @@ export class EventsComponent implements OnInit {
   events: Event[];
   
   selectedevent: Event;
-  userId:number = 3;
+  userId:number = 2;
 
   constructor(
     private eventService: EventService,
-    private router: Router) { }
+    private router: Router,
+    private location: Location) { }
 
   getevents(): void {
     this.eventService
         .getEvents()
-        .then(events => this.events = events);
+        .then(events => {this.events = events});
   }
 
   delete(event: Event): void {
@@ -43,6 +44,17 @@ export class EventsComponent implements OnInit {
           this.events = this.events.filter(h => h !== event);
           if (this.selectedevent === event) { this.selectedevent = null; }
         });
+  }
+
+
+
+  redirect(event: Event): void
+  {
+    //this.router.navigateByUrl('/edit/{{event.id}}');
+    console.log(event);
+    this.location.go("/edit/" + event.type + "/" + event.id,"");
+    //this.router.navigateByUrl('/edit/{{event.type}}/{{event.id}}')
+       window.location.reload();
   }
 
   ngOnInit(): void {
@@ -56,4 +68,6 @@ export class EventsComponent implements OnInit {
   edit(): void {
     this.router.navigate(['/detail/edit', this.selectedevent.id]);
   }
+
+   
 }

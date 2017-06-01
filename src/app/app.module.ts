@@ -21,6 +21,9 @@ import { NguiMapModule} from '@ngui/map';
 import {NguiUtilsModule} from '@ngui/utils';
 import { EventFormComponent } from './event-form/event-form.component';
 
+
+import { EventEditComponent } from './event-edit/event-edit.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { EventFormComponent } from './event-form/event-form.component';
     EventDetailComponent,
     MapComponent,
     EventFormComponent,
+    EventEditComponent
   ],
 
   providers: [EventService],
