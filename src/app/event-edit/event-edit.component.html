@@ -1,0 +1,39 @@
+<br>
+
+<div class="card" *ngIf="event">
+
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item mx-auto"><h2>{{type}} details</h2></li>
+    <li class="list-group-item" ><label>Starts: </label> <br>
+    
+      {{event.startingDate | date:'fullDate'}}</li>
+    <li class="list-group-item" ><label>Ends: </label><p>{{event.endingDate | date:'fullDate'}}</p></li>
+
+
+    <li class="list-group-item" ><label>Description: </label> <br>
+    
+    
+    <input [(ngModel)]="event.description" type="text" placeholder="{{event.description}}">
+
+    <!--<p>{{event.description}}</p></li>-->
+
+
+    <li class="list-group-item" ><label>Hints: </label> <br>
+
+     <input [(ngModel)]="event.hints" type="text" placeholder="{{event.hints}}">
+    
+    <!--<p>{{event.hints}}</p></li>-->
+
+    <li *ngIf="type=='Fire'" class="list-group-item" ><label>Speed:</label> <br>
+    
+    
+     <input [(ngModel)]="event.speed" type="text" placeholder="{{event.speed}}">
+
+    <!--<p>{{event.speed}}</p></li>-->
+  </ul>
+
+   <app-map [event]="event"></app-map>
+
+  <a (click)="goBack()" class="btn btn-danger btn-md btn-block ">Back</a>
+  <a (click)="save()" class="btn btn-success btn-md btn-block ">Save</a>
+</div>

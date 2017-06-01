@@ -9,12 +9,12 @@ import { MapComponent } from '../map/map.component';
 import {Fire} from '../models/events/fire';
 
 @Component({
-  selector: 'event-detail',
-  templateUrl: './event-detail.component.html',
-  styleUrls: ['./event-detail.component.css'],
+  selector: 'event-edit',
+  templateUrl: './event-edit.component.html',
+  styleUrls: ['./event-edit.component.css'],
   providers: [EventService]
 })
-export class EventDetailComponent implements OnInit {
+export class EventEditComponent implements OnInit {
   event;
   type:string;
 
@@ -33,7 +33,13 @@ export class EventDetailComponent implements OnInit {
       })
       .subscribe(event => {console.log(event);this.event=event;});
   }
-  
+
+   save(): void {
+     console.log(this.event);
+     this.eventService.update(this.event,this.type).then(() => this.goBack());
+      window.location.reload();
+   }
+
   goBack(): void {
     this.location.back();
   }
