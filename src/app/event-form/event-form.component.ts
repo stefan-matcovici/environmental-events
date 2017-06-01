@@ -53,8 +53,8 @@ export class EventFormComponent implements OnInit {
   create()
   {
     this.event.name=this.name;
-    this.event.startingDate=this.startingDate;
-    this.event.endingDate=this.startingDate;
+    this.event.startingTime=this.startingDate;
+    this.event.endingTime=this.startingDate;
     this.event.description=this.description;
     this.event.hints=this.hints;
     this.event.radius=this.radius;
@@ -79,7 +79,7 @@ export class EventFormComponent implements OnInit {
       case 'tornado':
         this.event.windspeed=this.windspeed;
       break;
-      case 'meteoEvent':
+      case 'meteoevent':
         this.event.humidity=this.humidity;
         this.event.precipitationLevel=this.precipitationLevel;
         this.event.temperature=this.temperature;
