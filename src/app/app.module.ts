@@ -23,6 +23,7 @@ import { EventFormComponent } from './event-form/event-form.component';
 
 
 import { EventEditComponent } from './event-edit/event-edit.component';
+import { ProxyComponent } from './proxy/proxy.component';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { EventEditComponent } from './event-edit/event-edit.component';
     EventDetailComponent,
     MapComponent,
     EventFormComponent,
-    EventEditComponent
+    EventEditComponent,
+    ProxyComponent
   ],
 
   providers: [EventService],

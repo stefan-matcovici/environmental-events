@@ -14,9 +14,6 @@
           <img *ngIf="event.type=='CanicularWeather'" src="http://icons.iconarchive.com/icons/aha-soft/free-3d-glossy/32/Thermometer-icon.png" />
           <img *ngIf="event.type=='ColdWeather'" src="http://icons.iconarchive.com/icons/icons-land/weather/32/Thermometer-Snowflake-icon.png" />
           <img *ngIf="event.type=='Earthquake'" src="http://icons.iconarchive.com/icons/icons8/windows-8/32/Weather-Earthquakes-icon.png" />
-
-    
-    
     </div>
   </custom-marker>
   <marker (click)="details($event,event)" *ngFor="let event of events" [position]=[event.latitude,event.longitude]>

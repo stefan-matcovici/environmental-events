@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { Event } from '../models/events/event';
@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   selectedEvent: Event;
   lat:number;
   map:google.maps.Map;
+  @Input() userId : string;
 
   constructor(private eventService: EventService,private location: Location) { }
 
