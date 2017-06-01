@@ -123,7 +123,7 @@ radioFIT {
   font-family:black, sans-serif;
   
   outline: 0;
-  background: #4CAF50;
+  background: #a7b4cc;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -133,9 +133,11 @@ radioFIT {
   
  
 }
+
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: lightslategray;
 }
+
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -145,6 +147,10 @@ radioFIT {
 
 .form .register-form {
   display: none;
+}
+
+.form-control-lg, .input-group-lg>.form-control, .input-group-lg>.input-group-addon, .input-group-lg>.input-group-btn>.btn {
+  padding: 0 1rem;
 }
 
 app-map {

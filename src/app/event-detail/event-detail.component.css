@@ -11,9 +11,10 @@ input {
   padding-left: .4em;
 }
 .btn{
-  border: 2px solid #333 !important;
+  /*border: 2px solid #333 !important;*/
   display: inline-block !important;
   position: relative;
+  background-color: lightgray !important;
   left:25%;
   width:50%;
   height:10%;
@@ -30,10 +31,10 @@ li{
   background-color: #ffffff
   
 }
-.card{
+/*.card{
   width: 70rem;
   left:23.5vw;
-}
+}*/
 
 .form-control{
   margin:1%;

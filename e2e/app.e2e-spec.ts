@@ -16,11 +16,6 @@ describe('environmental-events App', () => {
     pageDetails = new EventDetailsPage();
   });
 
-     it('Should display correct Newest Events heading', () => {
-       page.navigateTo();
-       expect (page.getHeading().isDisplayed()).toBe(true);
-     });
-
       // it('Should display correct map', () => {
       //     page.navigateTo();
       //     Observable.interval(2500).subscribe(() => {
@@ -35,12 +30,12 @@ describe('environmental-events App', () => {
       //  })
       //  });
 
-    //   it('Should check if correct map marker exists', () => {
-    //     page.navigateTo();
-    //     Observable.interval(2500).subscribe(() => {
-    //     expect (page.getMarker().isPresent()).toBe(true);
-    //   })
-    //  });
+    // it('Should check if correct map marker exists', () => {
+    //      page.navigateTo();
+    //      Observable.interval(2500).subscribe(() => {
+    //      expect (page.getMarker().isPresent()).toBe(true);
+    //    })
+    //   });
 
     it('Should display correct container', () => {
       pageList.navigateTo();
