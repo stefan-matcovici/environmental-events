@@ -53,7 +53,7 @@ export class EventService {
   }
 
   create(event,type): Promise<any> {
-    console.log(event);
+    console.log(type);
     return this.http.post(`${this.eventsUrl}/${type}`,event,{headers: this.headers}).toPromise().then(res => res.json().data as Event)
       .catch(this.handleError);
 

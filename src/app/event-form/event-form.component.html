@@ -23,13 +23,13 @@
                         <option value="flood">Flood</option>
                         <option value="terroristAttack">Terrorist Attack</option>
                         <option value="tornado">Tornado</option>
-                        <option value="meteoEvent">Meteo Event</option>
+                        <option value="meteoevent">Meteo Event</option>
                         <option value="tsunami">Tsunami</option>
-                        <option value="meteoEvent">Rain</option>
-                        <option value="meteoEvent">Snow</option>
-                        <option value="meteoEvent">Fog</option>
-                        <option value="meteoEvent">Cold Weather</option>
-                        <option value="meteoEvent">Canicular Weather</option>
+                        <option value="meteoevent">Rain</option>
+                        <option value="meteoevent">Snow</option>
+                        <option value="meteoevent">Fog</option>
+                        <option value="meteoevent">Cold Weather</option>
+                        <option value="meteoevent">Canicular Weather</option>
                 </select>
                 </p>                  
                  <div *ngIf="type=='earthquake'">
@@ -54,7 +54,7 @@
                         <input [(ngModel)]="windspeed" type="number" placeholder="Windspeed" />
                  </div>
 
-                 <div *ngIf="type=='meteoEvent'"  >
+                 <div *ngIf="type=='meteoevent'"  >
                         <input [(ngModel)]="humidity" type="text" placeholder="Humidity" />
                         <input [(ngModel)]="precipitationLevel" type="text" placeholder="Precipitation Level" />
                         <input [(ngModel)]="temperature" type="text" placeholder="Temperature" />
