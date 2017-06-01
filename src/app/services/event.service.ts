@@ -20,14 +20,16 @@ export class EventService {
                .toPromise()
                .then(response => {
                   let list = new Array<Event>();
-                  for (let element of response.json())
+                  if (response.json())
                   {
-                    let jsonObject = element;
-                    let event = this.toEvent(jsonObject);
-                    this.http.get(`${this.typesUrl}/${jsonObject.id}`).toPromise().then(response => response.json().eventType as string).then(eventType => event.type = eventType);
-                    list.push(event);
-                  }
-                  
+                    for (let element of response.json())
+                    {
+                      let jsonObject = element;
+                      let event = this.toEvent(jsonObject);
+                      this.http.get(`${this.typesUrl}/${jsonObject.id}`).toPromise().then(response => response.json().eventType as string).then(eventType => event.type = eventType);
+                      list.push(event);
+                    }
+                  }              
                   return list;
                 })
                .catch(this.handleError);

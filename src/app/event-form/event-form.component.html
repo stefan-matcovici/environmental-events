@@ -2,14 +2,14 @@
 
         <div class="form">
 
-                <input [(ngModel)]="name" type="text" placeholder="Event Name" required>
-                <input [(ngModel)]="startingDate" placeholder="Starting Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date" required>
-                <input [(ngModel)]="endingDate" placeholder="Ending Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date" required>
-                <input [(ngModel)]="description" type="text" placeholder="Description" required>
-                <input [(ngModel)]="hints" type="text" placeholder="Hints" required>
-                <input [(ngModel)]="radius" type="number" placeholder="Radius" required>
+                <input [(ngModel)]="name" type="text" placeholder="Event Name">
+                <input [(ngModel)]="startingDate" placeholder="Starting Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date">
+                <input [(ngModel)]="endingDate" placeholder="Ending Time" class="textbox-n" type="datetime-local" value="2013-10-24T20:36:00" step="1" id="date">
+                <input [(ngModel)]="description" type="text" placeholder="Description">
+                <input [(ngModel)]="hints" type="text" placeholder="Hints">
+                <input [(ngModel)]="radius" type="number" placeholder="Radius">
                 <label><b>Choose event severity:</b></label>
-                <select [(ngModel)]="severity" class="m-2 form-control-lg" required>
+                <select [(ngModel)]="severity" class="m-2 form-control-lg">
                         <option style="background-color:red">RED</option>
                         <option style="background-color:green">GREEN</option>
                         <option style="background-color:orange">ORANGE</option>
@@ -17,54 +17,51 @@
                 </select>
            
                 <p> <b>Choose event type:</b>
-                <select [(ngModel)]="buildTool" class="m-2 form-control-lg" required>
-                        <option value="1" (click)="changeType('earthquake')">Earthquake</option>
-                        <option value="2" (click)="changeType('fire')">Fire</option>
-                        <option value="3" (click)="changeType('flood')">Flood</option>
-                        <option value="4" (click)="changeType('terroristAttack')">Terrorist Attack</option>
-                        <option value="5" (click)="changeType('tornado')">Tornado</option>
-                        <option value="6" (click)="changeType('meteoEvent')">Meteo Event</option>
-                        <option value="7" (click)="changeType('tsunami')">Tsunami</option>
-                        <option value="8" (click)="changeType('meteoEvent')">Rain</option>
-                        <option value="9" (click)="changeType('meteoEvent')">Snow</option>
-                        <option value="10" (click)="changeType('meteoEvent')">Fog</option>
-                        <option value="11" (click)="changeType('meteoEvent')">Cold Weather</option>
-                        <option value="12" (click)="changeType('meteoEvent')">Canicular Weather</option>
+                <select [(ngModel)]="type" class="m-2 form-control-lg">
+                        <option value="earthquake">Earthquake</option>
+                        <option value="fire">Fire</option>
+                        <option value="flood">Flood</option>
+                        <option value="terroristAttack">Terrorist Attack</option>
+                        <option value="tornado">Tornado</option>
+                        <option value="meteoEvent">Meteo Event</option>
+                        <option value="tsunami">Tsunami</option>
+                        <option value="meteoEvent">Rain</option>
+                        <option value="meteoEvent">Snow</option>
+                        <option value="meteoEvent">Fog</option>
+                        <option value="meteoEvent">Cold Weather</option>
+                        <option value="meteoEvent">Canicular Weather</option>
                 </select>
-                </p>  
-
-                
-                 <div *ngIf="buildTool=='1'">
-                        <input [(ngModel)]="event.richterDegree" type="number" placeholder="Richter Degree" />
-                        <input [(ngModel)]="event.mercaliDegree" type="number" placeholder="Mercalli Degree" />
-                        <input [(ngModel)]="event.depth" type="number" placeholder="Depth" />
+                </p>                  
+                 <div *ngIf="type=='earthquake'">
+                        <input [(ngModel)]="richterDegree" type="number" placeholder="Richter Degree" />
+                        <input [(ngModel)]="mercaliDegree" type="number" placeholder="Mercalli Degree" />
+                        <input [(ngModel)]="depth" type="number" placeholder="Depth" />
                  </div>
                  
-                 <div *ngIf="buildTool=='2'"  >
-                        <input [(ngModel)]="event.speed" type="number" placeholder="Speed" />
+                 <div *ngIf="type=='fire'"  >
+                        <input [(ngModel)]="speed" type="number" placeholder="Speed" />
                  </div>
                  
-                 <div *ngIf="buildTool=='3'"  >
-                        <input [(ngModel)]="event.precipitationLevel" type="number" placeholder="Precipitation Level" />
-                       
+                 <div *ngIf="type=='flood'"  >
+                        <input [(ngModel)]="precipitationLevel" type="number" placeholder="Precipitation Level" />            
                  </div>
 
-                 <div *ngIf="buildTool=='4'"  >
-                        <input [(ngModel)]="event.numberOfTerrorists" type="number" placeholder="Number of terrorists" />
+                 <div *ngIf="type=='terroristAttack'"  >
+                        <input [(ngModel)]="numberOfTerrorists" type="number" placeholder="Number of terrorists" />
                  </div>
 
-                 <div *ngIf="buildTool=='5'"  >
-                        <input [(ngModel)]="event.windspeed" type="number" placeholder="Windspeed" />
+                 <div *ngIf="type=='tornado'"  >
+                        <input [(ngModel)]="windspeed" type="number" placeholder="Windspeed" />
                  </div>
 
-                 <div *ngIf="buildTool=='6' || buildTool=='8' || buildTool=='9' || buildTool=='10' || buildTool=='11' || buildTool=='12'"  >
-                        <input [(ngModel)]="event.humidity" type="text" placeholder="Humidity" />
-                        <input [(ngModel)]="event.precipitationLevel" type="text" placeholder="Precipitation Level" />
-                        <input [(ngModel)]="event.temperature" type="text" placeholder="Temperature" />
+                 <div *ngIf="type=='meteoEvent'"  >
+                        <input [(ngModel)]="humidity" type="text" placeholder="Humidity" />
+                        <input [(ngModel)]="precipitationLevel" type="text" placeholder="Precipitation Level" />
+                        <input [(ngModel)]="temperature" type="text" placeholder="Temperature" />
                  </div>
 
-                 <div *ngIf="buildTool=='7'"  >
-                        <input [(ngModel)]="event.maxWaveHeight" type="number" placeholder="Max Wave Heigth" />
+                 <div *ngIf="type=='tsunami'"  >
+                        <input [(ngModel)]="maxWaveHeight" type="number" placeholder="Max Wave Heigth" />
                  </div>
 
                 <app-map [event]="event" [(ngModel)]="radius" [editable]="true" [radius]="radius" (positionChanged)="onPositionChanged($event)" ngDefaultControl></app-map>

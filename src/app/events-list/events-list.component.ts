@@ -24,6 +24,7 @@ export class EventsComponent implements OnInit {
   events: Event[];
   
   selectedevent: Event;
+  userId:number = 3;
 
   constructor(
     private eventService: EventService,

@@ -10,4 +10,5 @@ export class Event {
   endingDate: Date;
   startingDate: Date;
   type:string;
+  userId:string;
 }

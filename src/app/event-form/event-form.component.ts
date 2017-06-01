@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventFormComponent implements OnInit {
   event:any = {};
+
   type:string;
-  buildTool;
 
   name:string;
   startingDate:Date;
@@ -19,6 +19,23 @@ export class EventFormComponent implements OnInit {
   hints:string;
   radius:number;
   severity:string;
+
+  richterDegree:number;
+  mercaliDegree:number;
+  depth:number;
+
+  speed:number;
+
+  precipitationLevel:number;
+
+  numberOfTerrorists:number;
+
+  windspeed:number;
+
+  humidity:number;
+  temperature:number;
+
+  maxWaveHeight:number;
 
   constructor(private eventService: EventService) { }
 
@@ -35,13 +52,6 @@ export class EventFormComponent implements OnInit {
 
   create()
   {
-    this.eventService.create(this.event,this.type);
-    window.location.reload();
-  }
-
-  changeType(str)
-  {
-    this.type=str;
     this.event.name=this.name;
     this.event.startingDate=this.startingDate;
     this.event.endingDate=this.startingDate;
@@ -49,6 +59,49 @@ export class EventFormComponent implements OnInit {
     this.event.hints=this.hints;
     this.event.radius=this.radius;
     this.event.severity=this.severity;
+    this.event.userId=2;
+    switch(this.type)
+    {
+      case 'fire':
+        this.event.speed=this.speed;
+      break;
+      case 'earthquake':
+        this.event.richterDegree=this.richterDegree;
+        this.event.mercaliDegree=this.mercaliDegree;
+        this.event.depth=this.depth;
+      break;
+      case 'flood':
+        this.event.precipitationLevel=this.precipitationLevel;
+      break;
+      case 'terroristAttack':
+        this.event.numberOfTerrorists=this.numberOfTerrorists;
+      break;
+      case 'tornado':
+        this.event.windspeed=this.windspeed;
+      break;
+      case 'meteoEvent':
+        this.event.humidity=this.humidity;
+        this.event.precipitationLevel=this.precipitationLevel;
+        this.event.temperature=this.temperature;
+      break;
+      case 'tsunami':
+        this.event.maxWaveHeight=this.maxWaveHeight;
+      break;
+    }
+    console.dir(this.event);
+    this.eventService.create(this.event,this.type);
+    window.location.reload();
+  }
+
+  changedValue(item)
+  {
+    console.log(item);
+  }
+
+  changeType()
+  {
+    
+    console.log(this.event);
   }
 
 }

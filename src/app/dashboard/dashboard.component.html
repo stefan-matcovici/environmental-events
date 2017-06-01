@@ -1,7 +1,7 @@
 <h2>
   Newest Events</h2>
 <br>
-<ngui-map zoom="2" class="harta">
+<ngui-map zoom="2" minZoom="2" class="harta">
   <custom-marker (click)="details($event,event)" *ngFor="let event of events" [position]=[event.latitude,event.longitude]>
     <div>
           <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/32/cloud-icon.png" />

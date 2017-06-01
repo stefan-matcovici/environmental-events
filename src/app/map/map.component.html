@@ -1,7 +1,7 @@
 <div *ngIf="editable; then thenBlock else elseBlock"> </div>
 
   <ng-template #thenBlock>
-    <ngui-map zoom="2" center="0,0" (click)="onClick($event)" draggable="true">
+    <ngui-map zoom="2"  minZoom="2" center="0,0" (click)="onClick($event)" draggable="true">
       <marker (click)="showInfoWindow($event)" [position]="position"></marker>
       <circle *ngIf="position" [(ngModel)]="radius" ngDefaultControl
           center="{{position.lat()}},{{position.lng()}}"
@@ -14,7 +14,7 @@
   </ng-template> 
 
   <ng-template #elseBlock>
-    <ngui-map zoom="9" center="{{event.latitude}},{{event.longitude}}">
+    <ngui-map zoom="9" minZoom="2" center="{{event.latitude}},{{event.longitude}}">
       <marker (click)="showInfoWindow($event)" [position]=[event.latitude,event.longitude]></marker>
       <circle center="{{event.latitude}},{{event.longitude}}"
           [strokeColor]="'#FF0000'"
