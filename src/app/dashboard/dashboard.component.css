@@ -5,7 +5,7 @@ a {
 }
 
 h2{
-    text-align: center; margin-bottom: 0;
+  text-align: center; margin-bottom: 0;
   color: white;
 }
 h3 {
@@ -66,6 +66,10 @@ h4 {
   left:32%
   }
 
+.btn.btn-info {
+  background-color: lightslategray;
+}
+
   .notice {
     padding: 15px;
     background-color: #fafafa;
@@ -111,13 +115,25 @@ h4 {
 }
 
 .harta{
-  height:86vh;
+  height:80vh;
 }
 
-  #legend {
-    font-family: Arial, sans-serif;
-    background: #fff;
-    padding: 10px;
-    margin: 10px;
-    border: 3px solid #000;
-  }
+p {
+  margin: 2%;
+  word-spacing: 0.2em;
+}
+
+.modal-dialog {
+  padding-top: 12%;
+  left: 57em;
+}
+
+h6 {
+  color: gray;
+  font-size: 3em;
+}
+
+button {
+  size: 80%;
+}
+
