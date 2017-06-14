@@ -27,8 +27,5 @@ export class MapComponent implements OnInit {
     this.position = event.latLng;
     this.positionChanged.emit(this.position);
     event.target.panTo(event.latLng);
-  }
-
-
-  
+  }  
 }

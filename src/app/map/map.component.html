@@ -1,5 +1,4 @@
 <div *ngIf="editable; then thenBlock else elseBlock"> </div>
-
   <ng-template #thenBlock>
     <ngui-map zoom="2"  minZoom="2" center="0,0" (click)="onClick($event)" draggable="true">
       <marker (click)="showInfoWindow($event)" [position]="position"></marker>
